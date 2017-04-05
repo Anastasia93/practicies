@@ -15,7 +15,7 @@ but it would be better to not use such simbols as a comma, period, dash, etc., i
 palindrom but the way to sign punctuation, because this simbols and can destroy palindrome structure and made the programm
 work uncorrectly.
 
-###Steps:
+Steps:
 
 1. Open file `index.html`
 2. Enter to the text area any palindrom phrase, or word or number. Or choose any 
