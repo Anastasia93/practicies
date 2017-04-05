@@ -1,0 +1,36 @@
+BODY {
+    background-color: aliceblue;
+    font-family: Calibri;
+    font-size: 20;
+    text-align: center;
+
+}
+
+INPUT {
+    font-family: Calibri;
+    font-size: inherit;
+
+}
+
+OL {
+    text-align: center;
+    list-style-position: inside;
+}
+
+IMG {
+    margin-left: 18%;
+    margin-top: 10%;
+    float: left;
+}
+
+#main_content {
+    margin-top: 13%;
+    margin-right: 25%;
+    float: right;
+
+}
+
+#editor {
+    font-family: Calibri Light;
+    font-size: 20;
+}
