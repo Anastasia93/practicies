@@ -3,10 +3,10 @@ some interesting self-education tasks implementations
 
 # Include:
 
-## Online courses labs "Ninja JS"
+## -Online courses labs "Ninja JS"
 Some labs, targeting to upgrade knowledge of JS basics)
 
-## Palindrosity
+## -Palindrosity
 This programm is searching palindromes in your string.
 ### To check the the efficiency of the program:
 
@@ -58,5 +58,5 @@ the phrase "Hey! We have found some palindromes in your string":
 
 4. To search palindromes in another string, delete the previous and enter a new one.
 
-## XML Parser
+## -XML Parser
 Implementation without any Jquery or JA native API.
