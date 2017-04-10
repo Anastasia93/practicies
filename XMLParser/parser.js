@@ -1,38 +1,38 @@
 var xmlData = {},
-    xmlString = prompt("Please, alert some XML-string:", '<book title="Book 1"><chapter title="Chapter 1"><paragraph>123</paragraph><paragraph>456</paragraph></chapter></book>>'),
-    xmlStringArray = xmlString.split('');
+    xmlString = prompt("Please, alert some XML-string:", '<a><a></a><a><a></a></a></a>'),
+    xmlDataArray = xmlString.split("");
 
-function readTag(array){
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === "<") {
-            var objNameArr = [],
-                objAttributeArr = [];
-            findtag: for (var j = 1; j < array.length; j++) {
-                switch(array[j]){
-                    case ">":
-                        xmlData[objNameArr.join("")] = {};
-                        if(objAttributeArr > 0){
-                            
-                        }
-                        break;
-                        break findtag;
+function parseString(dataString, dataArray) {
+    var currentSearchCoords = [0, 0],
+        opArray = [],
+        clArray = [];
 
-                    case " ":
-                        objAttributeArr.push(array[j]);
-                        break;
+        if (dataArray[0] === "<") {
+            var currentOpened = "",
+                pos = 0;
+            while (dataArray[pos] !== " " && dataArray[pos] !== ">") {
+                currentOpened += dataArray[pos];
+                pos++;
+            }
+            var currentClosed = "</" + currentOpened.slice(1);
+        }
 
-                    case "=":
-                        xmlData[objNameArr.join("")][objAttributeArr.join("")] = {};
-                        break;
+        function findNode(posOpen, posClose) {
+            var entryPosOpen = dataString.indexOf(currentOpened, posOpen),
+                entryPosClose = dataString.indexOf(currentClosed, posClose);
+            if (entryPosOpen < entryPosClose) {
+                opArray.push(entryPosOpen);
+                clArray.push(entryPosClose);
+                findNode(entryPosOpen + 1, entryPosClose + 1);
+            }
 
-                    default: objNameArr.push(array[j]);
-                }
+            else {
+                currentSearchCoords[1] = entryPosClose;
             }
         }
-    }
+
+        findNode(pos, pos);
 }
 
-readTag(xmlString);
+parseString(xmlString, xmlDataArray);
 console.log(xmlData);
-
-// xmlParser.stringify = function(xmlString){};
